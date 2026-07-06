@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tejal Acharya Soni - Premium Vedic Astrology Services">
+    <meta name="keywords" content="astrology, kundali, hast rekha, face reading, vaastu, family guidance">
+    <title>Vinayak Astrologer | Tejal Acharya Soni</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Drawer Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        <div class="logo" onclick="navigateTo('home')">
+            <div class="logo-om">ॐ</div>
+            <div>
+                <div class="logo-text" id="logoName"><span class="logo-full">Vinayak Astrologer</span><span class="logo-short">Vinayak</span></div>
+                <div class="logo-sub" id="logoSubtitle">Tejal Acharya Soni</div>
+            </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#" onclick="event.preventDefault(); navigateTo('home')" id="nav-home">Home</a>
+            <a href="#" onclick="event.preventDefault(); navigateTo('services')" id="nav-services">Services</a>
+            <a href="#" onclick="event.preventDefault(); navigateTo('about')" id="nav-about">About</a>
+            <a href="#" onclick="event.preventDefault(); navigateTo('enquiry')" id="nav-enquiry">Enquiry</a>
+            <a href="#" onclick="event.preventDefault(); navigateTo('contact')" id="nav-contact">Contact</a>
+            
+            <div class="mobile-only" style="margin-top:20px; border-top:1px solid var(--border); padding-top:20px; display:flex; align-items:center; justify-content:space-between">
+                <span style="font-family:var(--font-a); font-size:0.75rem; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase">Theme</span>
+                <button class="theme-toggle" id="themeToggleMobile" style="position:static; margin:0" title="Toggle Theme">
+                    <span id="themeIconMobile">🌙</span>
+                </button>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-btn" id="langBtn">🌐 Languages <span class="lang-arrow">▾</span></button>
+                <ul class="lang-menu" id="langMenu">
+                    <li data-lang="en" class="lang-option active">English</li>
+                    <li data-lang="hi" class="lang-option">हिंदी</li>
+                </ul>
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme"><span id="themeIcon">🌙</span></button>
+        </div>
+    </nav>
+
+    <!-- ============ HOME PAGE ============ -->
+    <section id="home" class="page-section">
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <div class="hero-blessing">।। ॐ श्री गणपतये नमः ।।</div>
+                    <div class="hero-eyebrow">
+                        <div class="hero-line"></div>
+                        <span class="hero-eyebrow-text" id="eyebrow">कुलदेवी कृपा · Vedic Astrology</span>
+                    </div>
+                    <h1 id="hero-h1">Vinayak<br><em id="hero-em">Acharya Soni</em></h1>
+                    <p class="hero-tagline" id="hero-tagline">Unveiling your cosmic destiny<br>through ancient wisdom</p>
+                    <p class="hero-desc" id="hero-desc">Experience authentic Vedic astrology guidance for clarity, prosperity, and spiritual growth. Rooted in sacred tradition, guided by the stars.</p>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image">
+                        <img src="ganpatiji_light_theme.png" alt="Shree Ganesh" class="light-img" loading="eager">
+                        <img src="ganpatiji_dark_theme.png" alt="Shree Ganesh" class="dark-img" loading="eager">
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <div class="hero-ctas">
+                        <button class="btn-primary" id="btn-book" onclick="openWhatsApp()">Book a Consultation →</button>
+                        <button class="btn-whatsapp" onclick="openWhatsApp()">💬 WhatsApp</button>
+                    </div>
+                    <div class="hero-phone">
+                        <span>📞</span>
+                        <a href="tel:+918849622721">+91 88496 22721</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="features-strip fade-in">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <div class="feature-title">Personalized Guidance</div>
+                <div class="feature-desc">Tailored to your unique birth chart</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">Confidential</div>
+                <div class="feature-desc">Safe and private consultations</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📜</div>
+                <div class="feature-title">Vedic Knowledge</div>
+                <div class="feature-desc">Rooted in ancient scriptures</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <div class="feature-title">Easy Booking</div>
+                <div class="feature-desc">Convenient online consultations</div>
+            </div>
+        </div>
+
+        <!-- SERVICES PREVIEW -->
+        <div class="services-section fade-in">
+            <div class="section-eyebrow" id="services-header">Our Sacred Services</div>
+            <h2 class="section-title" id="services-subheader">Sacred Solutions for Every Life Aspect</h2>
+            <div class="services-scroll">
+                <div class="svc-card service-card"><div class="svc-icon service-icon">✋</div><h3 class="svc-name service-name">Hast Rekha</h3><p class="svc-desc service-desc">Ancient palmistry art reveals the hidden lines of destiny on your hands. Our expert analysis provides deep insights into your personality, talents, challenges, and the pathways your life may take.</p><a onclick="navigateTo('enquiry')" class="svc-link">Enquire Now →</a></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">📈</div><h3 class="svc-name service-name">Janmakshar Kundali</h3><p class="svc-desc service-desc">Comprehensive birth chart analysis based on your exact birth details. This detailed reading provides clarity about life phases, opportunities, challenges, and your cosmic blueprint for success.</p><a onclick="navigateTo('enquiry')" class="svc-link">Enquire Now →</a></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">🕯️</div><h3 class="svc-name service-name">Karm Kaand</h3><p class="svc-desc service-desc">Traditional Vedic rituals and ceremonies performed with authentic spiritual practices. These sacred rites harmonize your cosmic energy and invite divine blessings into your life.</p><a onclick="navigateTo('enquiry')" class="svc-link">Enquire Now →</a></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">👤</div><h3 class="svc-name service-name">Face Reading</h3><p class="svc-desc service-desc">Discover what your facial features reveal about your character, fortune, and inner nature. This ancient practice helps understand personal strengths and hidden potentials in your personality.</p><a onclick="navigateTo('enquiry')" class="svc-link">Enquire Now →</a></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">💑</div><h3 class="svc-name service-name">Marriage Issues</h3><p class="svc-desc service-desc">Comprehensive kundali matching and marital compatibility analysis. Our guidance addresses relationship challenges and provides astrological remedies for a harmonious and prosperous marriage.</p><a onclick="navigateTo('enquiry')" class="svc-link">Enquire Now →</a></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">👨‍👩‍👧‍👦</div><h3 class="svc-name service-name">Family Problems</h3><p class="svc-desc service-desc">Astrological guidance to resolve family conflicts and strengthen relationships. We identify planetary influences affecting harmony and provide spiritual remedies for lasting peace and bonding.</p><a onclick="navigateTo('enquiry')" class="svc-link">Enquire Now →</a></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">💼</div><h3 class="svc-name service-name">Business Solutions</h3><p class="svc-desc service-desc">Strategic business guidance through astrological analysis of your birth chart. Identify auspicious timings, overcome obstacles, and align your ventures with cosmic energies for success.</p><a onclick="navigateTo('enquiry')" class="svc-link">Enquire Now →</a></div>
+            </div>
+        </div>
+
+        <!-- ABOUT PREVIEW -->
+        <div class="about-section fade-in">
+            <div class="about-card">
+                <div class="about-img">
+                    <div class="about-placeholder">
+                        <div class="about-placeholder-icon">ॐ</div>
+                        <div class="about-placeholder-text">Acharya Tejal Soni<br>Portrait Placeholder</div>
+                    </div>
+                </div>
+                <div class="about-body">
+                    <div class="section-eyebrow" style="text-align:left" id="aboutEyebrow">About the Acharya</div>
+                    <h2 id="aboutTitle">Rooted in <em>Sacred Tradition</em>,<br>Guided by the Stars</h2>
+                    <p id="aboutPara1">With decades of study in classical Vedic texts and direct lineage wisdom, Tejal brings an authenticity to astrological practice that modern consultants rarely possess.</p>
+                    <p id="aboutPara2">Every consultation is a sacred dialogue — between the cosmos, the charts, and the individual soul seeking clarity.</p>
+                    <div class="about-features">
+                        <div class="about-feat">Vedic Astrology</div>
+                        <div class="about-feat">Personalized Guidance</div>
+                        <div class="about-feat">Confidential</div>
+                        <div class="about-feat">Traditional Methods</div>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap">
+                        <button class="btn-ghost" onclick="navigateTo('about')" id="btn-enquiry">Learn More →</button>
+                        <button class="btn-primary" onclick="openWhatsApp()">Book Consultation →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCESS -->
+        <div class="process-section fade-in">
+            <div class="section-eyebrow">Our Process</div>
+            <h2 class="section-title">Simple Steps, Powerful Guidance</h2>
+            <div style="height:24px"></div>
+            <div class="process-steps">
+                <div class="step"><div class="step-num">01</div><div class="step-content"><h4>Book Session</h4><p>Schedule a convenient time for your consultation.</p></div></div>
+                <div class="step"><div class="step-num">02</div><div class="step-content"><h4>Share Details</h4><p>Provide your birth date, time, and place securely.</p></div></div>
+                <div class="step"><div class="step-num">03</div><div class="step-content"><h4>Deep Analysis</h4><p>Detailed astrological study and chart calculations.</p></div></div>
+                <div class="step"><div class="step-num">04</div><div class="step-content"><h4>Consultation</h4><p>One-on-one session with personal guidance.</p></div></div>
+                <div class="step"><div class="step-num">05</div><div class="step-content"><h4>Transformation</h4><p>Receive remedies and steps for a better life.</p></div></div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section fade-in">
+            <div class="cta-card">
+                <div>
+                    <h2>Begin Your Journey Today</h2>
+                    <p>Book your consultation and take the first step toward clarity, peace, and a meaningful life.</p>
+                    <div class="cta-btns">
+                        <button class="btn-primary" onclick="openWhatsApp()">Book Consultation →</button>
+                        <button class="btn-whatsapp" onclick="openWhatsApp()">💬 WhatsApp</button>
+                    </div>
+                </div>
+                <div class="cta-contact">
+                    <div class="cta-contact-item"><span>📞</span><a href="tel:+918849622721">+91 88496 22721</a></div>
+                    <div class="cta-contact-item"><span>✉️</span><span>connect@vinayakastrologer.in</span></div>
+                    <div class="cta-contact-item"><span>📍</span><span>Rajkot, Gujarat, India</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUOTE -->
+        <div class="quote-section fade-in">
+            <span class="quote-mark">"</span>
+            <p class="quote-text" id="quote-text">The stars whisper secrets that the heart already knows. Seek guidance from the cosmos, and discover your true path.</p>
+            <div class="quote-source" id="quote-source">— Ancient Vedic Wisdom</div>
+        </div>
+
+    </section>
+
+    <!-- ============ SERVICES PAGE ============ -->
+    <section id="services" class="page-section hidden-page">
+        <div class="page-header"><h1 id="services-header-page">Our Sacred Services</h1><p>Comprehensive Astrology Solutions for Your Life</p></div>
+        <div class="services-section" style="padding-top:24px">
+            <div class="services-scroll" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:0 20px;overflow:visible;max-width:1100px;margin:0 auto">
+                <div class="svc-card service-card"><div class="svc-icon service-icon">✋</div><h3 class="svc-name service-name">Hast Rekha</h3><p class="svc-desc service-desc">Ancient palmistry art reveals the hidden lines of destiny on your hands. Our expert analysis provides deep insights into your personality, talents, challenges, and the pathways your life may take.</p></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">👤</div><h3 class="svc-name service-name">Face Reading</h3><p class="svc-desc service-desc">Discover what your facial features reveal about your character, fortune, and inner nature. This ancient practice helps understand personal strengths and hidden potentials in your personality.</p></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">📈</div><h3 class="svc-name service-name">Janmakshar Kundali</h3><p class="svc-desc service-desc">Comprehensive birth chart analysis based on your exact birth details. This detailed reading provides clarity about life phases, opportunities, challenges, and your cosmic blueprint for success.</p></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">🕯️</div><h3 class="svc-name service-name">Karm Kaand</h3><p class="svc-desc service-desc">Traditional Vedic rituals and ceremonies performed with authentic spiritual practices. These sacred rites harmonize your cosmic energy and invite divine blessings into your life.</p></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">👨‍👩‍👧‍👦</div><h3 class="svc-name service-name">Family Problems</h3><p class="svc-desc service-desc">Astrological guidance to resolve family conflicts and strengthen relationships. We identify planetary influences affecting harmony and provide spiritual remedies for lasting peace and bonding.</p></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">💑</div><h3 class="svc-name service-name">Marriage Issues</h3><p class="svc-desc service-desc">Comprehensive kundali matching and marital compatibility analysis. Our guidance addresses relationship challenges and provides astrological remedies for a harmonious and prosperous marriage.</p></div>
+                <div class="svc-card service-card"><div class="svc-icon service-icon">💼</div><h3 class="svc-name service-name">Business Solutions</h3><p class="svc-desc service-desc">Strategic business guidance through astrological analysis of your birth chart. Identify auspicious timings, overcome obstacles, and align your ventures with cosmic energies for success.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT PAGE ============ -->
+    <section id="about" class="page-section hidden-page">
+        <div class="page-header"><h1>About the Acharya</h1><p>Tradition, Wisdom, Authenticity</p></div>
+        <div class="page-content">
+            <div class="about-card" style="border-radius:18px;overflow:hidden">
+                <div class="about-img"><div class="about-placeholder"><div class="about-placeholder-icon">ॐ</div><div class="about-placeholder-text">Acharya Portrait</div></div></div>
+                <div class="about-body">
+                    <h2>Rooted in <em>Sacred Tradition</em></h2>
+                    <p id="aboutPara1-page">With decades of study in classical Vedic texts and direct lineage wisdom, Tejal brings an authenticity to astrological practice that modern consultants rarely possess.</p>
+                    <p id="aboutPara2-page">Every consultation is a sacred dialogue — between the cosmos, the charts, and the individual soul seeking clarity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ENQUIRY PAGE ============ -->
+    <section id="enquiry" class="page-section hidden-page">
+        <div class="page-header"><h1 id="enquiry-title">Enquiry Form</h1><p id="enquiry-subtitle">Begin Your Journey to Cosmic Clarity</p></div>
+        <div class="page-content">
+            <div class="form-card">
+                <form id="enquiryForm" onsubmit="submitEnquiry(event)">
+                    <div class="form-group"><label for="fullName" id="form-label-name">Full Name</label><input type="text" id="fullName" name="fullName" required placeholder="Enter your full name"></div>
+                    <div class="form-group"><label for="birthDate" id="form-label-date">Birth Date</label><input type="date" id="birthDate" name="birthDate" required></div>
+                    <div class="form-group"><label for="birthTime" id="form-label-time">Birth Time</label><input type="time" id="birthTime" name="birthTime" required></div>
+                    <div class="form-group"><label for="birthPlace" id="form-label-place">Birth Place</label><input type="text" id="birthPlace" name="birthPlace" required placeholder="City/Town, Country"></div>
+                    <div class="form-group"><label for="userQuery" id="form-label-query">Your Query</label><input type="text" id="userQuery" name="userQuery" required placeholder="What are you enquiring for?"></div>
+                    <button type="submit" class="btn-primary btn-large" id="form-submit">📨 Send Enquiry via WhatsApp</button>
+                </form>
+            </div>
+            <div class="enquiry-info">
+                <h3 id="enquiry-next-title">What Happens Next?</h3>
+                <ul style="list-style:none;padding:0">
+                    <li id="enquiry-li1"><span style="color:var(--gold)">✦</span> Your enquiry will be sent directly to TejalBen via WhatsApp</li>
+                    <li id="enquiry-li2"><span style="color:var(--gold)">✦</span> We'll review your birth details and cosmic information</li>
+                    <li id="enquiry-li3"><span style="color:var(--gold)">✦</span> Our team will contact you to schedule a personalized consultation</li>
+                    <li id="enquiry-li4"><span style="color:var(--gold)">✦</span> You'll receive comprehensive guidance tailored to your needs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT PAGE ============ -->
+    <section id="contact" class="page-section hidden-page">
+        <div class="page-header"><h1 id="contactPageTitle">Contact Us</h1><p id="contactPageSubtitle">Connect With Tejal Acharya Soni</p></div>
+        <div class="page-content">
+            <div class="contact-card">
+                <div style="font-size:2.5rem;color:var(--gold);font-family:var(--font-t);margin-bottom:12px">ॐ</div>
+                <h2 id="contactTitle">Tejal Acharya Soni</h2>
+                <div class="info-row"><span class="label" id="contact-phone-label">Phone / WhatsApp</span><span class="value">+91 8849622721</span></div>
+                <div class="contact-btns">
+                    <button class="btn-whatsapp" id="contact-whatsapp" onclick="openWhatsApp()">💬 WhatsApp</button>
+                    <button class="btn-ghost" id="contact-call" onclick="openCall()">📞 Call Now</button>
+                </div>
+                <div class="info-text">
+                    <h4 id="contact-message-title">Get in Touch</h4>
+                    <p id="contact-message-p1">Have questions about our services? Want to book a consultation? Feel free to reach out through WhatsApp or call us directly.</p>
+                    <p id="contact-message-p2">For enquiries, we also have a dedicated form available to gather your birth details for accurate guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-brand-col">
+            <div class="footer-logo">ॐ</div>
+            <div class="footer-brand" id="footerName">Tejal Acharya Soni</div>
+            <p class="footer-tagline" id="footerTagline">Guiding you toward cosmic harmony and spiritual growth</p>
+        </div>
+        <div>
+            <div class="footer-col-title">Quick Links</div>
+            <div class="footer-links"><a onclick="navigateTo('home')">Home</a><a onclick="navigateTo('services')">Services</a><a onclick="navigateTo('about')">About</a></div>
+        </div>
+        <div>
+            <div class="footer-col-title">Services</div>
+            <div class="footer-links"><a onclick="navigateTo('services')">Kundali</a><a onclick="navigateTo('services')">Hast Rekha</a><a onclick="navigateTo('services')">Face Reading</a></div>
+        </div>
+        <div>
+            <div class="footer-col-title">Contact</div>
+            <div class="footer-links"><a href="tel:+918849622721">+91 88496 22721</a><a>Rajkot, Gujarat</a></div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 · <span id="footerText">Vinayak Astrologer</span></div>
+            <div>श्री गणेशाय नमः</div>
+            <div id="footerRights" style="opacity:.6">All rights reserved</div>
+        </div>
+    </footer>
+
+    <!-- STICKY BOTTOM BAR -->
+    <div class="sticky-bar">
+        <button class="sticky-btn sb-call" onclick="openCall()"><span>📞</span> Call</button>
+        <button class="sticky-btn sb-wa" onclick="openWhatsApp()"><span>💬</span> WhatsApp</button>
+        <button class="sticky-btn sb-book" onclick="navigateTo('enquiry')"><span>📅</span> Book</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    // Scroll animations
+    const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.1});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+    </script>
+</body>
+</html>

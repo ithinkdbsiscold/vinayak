@@ -1,0 +1,500 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-pale: #F5E4A0;
+    --deep: #080810;
+    --surface: #0D0D1A;
+    --surface2: #121224;
+    --text: #F0E8D5;
+    --text-muted: #9B8E78;
+    --accent: #7B4F9C;
+  }
+
+  body { background: var(--deep); }
+
+  .site { font-family: 'EB Garamond', serif; background: var(--deep); color: var(--text); overflow: hidden; }
+
+  /* NAV */
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+    background: rgba(8,8,16,0.95);
+    position: relative;
+  }
+  .nav::after {
+    content: '';
+    position: absolute; bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  }
+  .logo { display: flex; align-items: center; gap: 14px; }
+  .logo-om {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+  .logo-text { font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: 0.08em; color: var(--text); }
+  .logo-sub { font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Cinzel', serif; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--text-muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a.active, .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 520px; display: flex; align-items: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(123,79,156,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 30% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+                var(--deep);
+  }
+  .star-field { position: absolute; inset: 0; }
+  .hero-content { position: relative; z-index: 2; padding: 60px 48px; flex: 1; }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+  }
+  .eyebrow-line { height: 1px; width: 40px; background: var(--gold); opacity: 0.6; }
+  .eyebrow-text {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.9;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 62px; line-height: 1.1; letter-spacing: -0.01em;
+    color: var(--text); margin-bottom: 8px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-tagline {
+    font-size: 20px; color: var(--text-muted); font-style: italic;
+    margin-bottom: 32px; line-height: 1.5;
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  }
+  .hero-desc { font-size: 15px; color: var(--text-muted); max-width: 440px; line-height: 1.7; margin-bottom: 40px; }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 14px 32px;
+    background: var(--gold); color: #080810; border: none; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-ghost {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 14px 32px;
+    background: transparent; color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4); cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); }
+
+  /* MANDALA ORNAMENT */
+  .hero-visual { position: absolute; right: -30px; top: 50%; transform: translateY(-50%); z-index: 1; opacity: 0.35; }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: rgba(201,168,76,0.08);
+    border-top: 0.5px solid rgba(201,168,76,0.2);
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+    padding: 14px 0; overflow: hidden;
+  }
+  .marquee-inner { display: flex; gap: 48px; white-space: nowrap; animation: marquee 20s linear infinite; }
+  .marquee-item {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.7;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .marquee-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; opacity: 0.5; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SERVICES */
+  .section { padding: 80px 48px; }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.8; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 44px; color: var(--text); line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+  .divider {
+    width: 60px; height: 1px; background: var(--gold); opacity: 0.4;
+    margin: 20px auto 0;
+  }
+
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(201,168,76,0.12); }
+  .service-card {
+    background: var(--surface); padding: 40px 28px;
+    transition: background 0.3s;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  }
+  .service-card:hover { background: var(--surface2); }
+  .service-icon {
+    width: 48px; height: 48px; border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 20px; background: rgba(201,168,76,0.05);
+  }
+  .service-num {
+    font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold); opacity: 0.5;
+    letter-spacing: 0.2em;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400;
+    color: var(--text); line-height: 1.2;
+  }
+  .service-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .service-link {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase; margin-top: auto;
+    text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 2px;
+  }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 0.5px solid rgba(201,168,76,0.15);
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+  }
+  .about-visual {
+    background: radial-gradient(ellipse at center, rgba(123,79,156,0.2) 0%, var(--surface) 70%);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 360px; padding: 60px;
+  }
+  .about-text { padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; }
+  .about-text h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 40px; color: var(--text); line-height: 1.15; margin-bottom: 20px;
+  }
+  .about-text h2 em { font-style: italic; color: var(--gold-light); }
+  .about-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+  .stats-row { display: flex; gap: 40px; margin-top: 32px; }
+  .stat { }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 4px; }
+
+  /* QUOTE */
+  .quote-section {
+    padding: 80px 48px; text-align: center;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.06), transparent),
+                var(--deep);
+    position: relative;
+  }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif; font-size: 120px; color: var(--gold);
+    opacity: 0.15; line-height: 0.5; margin-bottom: 16px; display: block;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300;
+    font-style: italic; color: var(--text); max-width: 700px; margin: 0 auto;
+    line-height: 1.4;
+  }
+  .quote-source {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em;
+    color: var(--gold); opacity: 0.6; text-transform: uppercase; margin-top: 24px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #050508;
+    border-top: 0.5px solid rgba(201,168,76,0.2);
+    padding: 48px;
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+  }
+  .footer-brand { }
+  .footer-logo { font-family: 'Cinzel', serif; font-size: 15px; color: var(--text); }
+  .footer-tagline { font-size: 12px; color: var(--text-muted); font-style: italic; margin-top: 4px; }
+  .footer-center { text-align: center; }
+  .footer-om { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); display: block; }
+  .footer-mantra { font-size: 14px; color: var(--gold); opacity: 0.7; letter-spacing: 0.1em; }
+  .footer-right { text-align: right; font-size: 11px; color: var(--text-muted); }
+
+  /* LABEL for sections */
+  .bg-surface { background: var(--surface); }
+</style>
+
+<div class="site">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-om">ॐ</div>
+      <div>
+        <div class="logo-text">TejalBen Acharya Soni</div>
+        <div class="logo-sub">Vedic Astrologer</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Enquiry</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Starfield SVG -->
+    <svg class="star-field" viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="60" cy="40" r="1.2" fill="#C9A84C" opacity="0.6"/>
+      <circle cx="180" cy="90" r="0.8" fill="#fff" opacity="0.4"/>
+      <circle cx="320" cy="30" r="1" fill="#fff" opacity="0.3"/>
+      <circle cx="500" cy="60" r="0.8" fill="#C9A84C" opacity="0.5"/>
+      <circle cx="600" cy="110" r="1.2" fill="#fff" opacity="0.35"/>
+      <circle cx="640" cy="40" r="0.7" fill="#C9A84C" opacity="0.4"/>
+      <circle cx="100" cy="160" r="0.6" fill="#fff" opacity="0.25"/>
+      <circle cx="240" cy="200" r="1" fill="#C9A84C" opacity="0.3"/>
+      <circle cx="560" cy="180" r="0.8" fill="#fff" opacity="0.4"/>
+      <circle cx="420" cy="130" r="0.6" fill="#C9A84C" opacity="0.45"/>
+      <circle cx="670" cy="250" r="1" fill="#fff" opacity="0.2"/>
+      <circle cx="30" cy="300" r="0.8" fill="#C9A84C" opacity="0.35"/>
+      <circle cx="150" cy="350" r="0.6" fill="#fff" opacity="0.3"/>
+      <circle cx="590" cy="380" r="1" fill="#C9A84C" opacity="0.4"/>
+      <circle cx="350" cy="440" r="0.8" fill="#fff" opacity="0.25"/>
+      <circle cx="480" cy="460" r="1.2" fill="#C9A84C" opacity="0.3"/>
+      <circle cx="70" cy="480" r="0.6" fill="#fff" opacity="0.35"/>
+      <circle cx="660" cy="430" r="0.8" fill="#C9A84C" opacity="0.3"/>
+    </svg>
+
+    <!-- Mandala ornament -->
+    <div class="hero-visual">
+      <svg width="420" height="420" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g transform="translate(210,210)" fill="none" stroke="#C9A84C">
+          <!-- outer ring -->
+          <circle cx="0" cy="0" r="200" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="0" cy="0" r="170" stroke-width="0.5" opacity="0.25"/>
+          <!-- petal shapes -->
+          <g opacity="0.4">
+            <ellipse rx="18" ry="60" transform="rotate(0)" stroke-width="0.8"/>
+            <ellipse rx="18" ry="60" transform="rotate(30)" stroke-width="0.8"/>
+            <ellipse rx="18" ry="60" transform="rotate(60)" stroke-width="0.8"/>
+            <ellipse rx="18" ry="60" transform="rotate(90)" stroke-width="0.8"/>
+            <ellipse rx="18" ry="60" transform="rotate(120)" stroke-width="0.8"/>
+            <ellipse rx="18" ry="60" transform="rotate(150)" stroke-width="0.8"/>
+          </g>
+          <!-- outer petals -->
+          <g opacity="0.25">
+            <ellipse rx="12" ry="100" transform="rotate(15)" stroke-width="0.5"/>
+            <ellipse rx="12" ry="100" transform="rotate(45)" stroke-width="0.5"/>
+            <ellipse rx="12" ry="100" transform="rotate(75)" stroke-width="0.5"/>
+            <ellipse rx="12" ry="100" transform="rotate(105)" stroke-width="0.5"/>
+            <ellipse rx="12" ry="100" transform="rotate(135)" stroke-width="0.5"/>
+            <ellipse rx="12" ry="100" transform="rotate(165)" stroke-width="0.5"/>
+          </g>
+          <!-- middle ring petals -->
+          <g opacity="0.35" transform="scale(0.7)">
+            <ellipse rx="14" ry="70" transform="rotate(0)" stroke-width="0.8"/>
+            <ellipse rx="14" ry="70" transform="rotate(22.5)" stroke-width="0.8"/>
+            <ellipse rx="14" ry="70" transform="rotate(45)" stroke-width="0.8"/>
+            <ellipse rx="14" ry="70" transform="rotate(67.5)" stroke-width="0.8"/>
+            <ellipse rx="14" ry="70" transform="rotate(90)" stroke-width="0.8"/>
+            <ellipse rx="14" ry="70" transform="rotate(112.5)" stroke-width="0.8"/>
+            <ellipse rx="14" ry="70" transform="rotate(135)" stroke-width="0.8"/>
+            <ellipse rx="14" ry="70" transform="rotate(157.5)" stroke-width="0.8"/>
+          </g>
+          <!-- inner circles -->
+          <circle cx="0" cy="0" r="80" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="0" cy="0" r="50" stroke-width="0.5" opacity="0.35"/>
+          <circle cx="0" cy="0" r="25" stroke-width="0.5" opacity="0.4"/>
+          <!-- diamond points -->
+          <g opacity="0.6" stroke-width="0.8">
+            <line x1="0" y1="-195" x2="0" y2="195"/>
+            <line x1="-195" y1="0" x2="195" y2="0"/>
+            <line x1="-138" y1="-138" x2="138" y2="138"/>
+            <line x1="138" y1="-138" x2="-138" y2="138"/>
+          </g>
+          <!-- center lotus -->
+          <circle cx="0" cy="0" r="8" stroke-width="1" fill="rgba(201,168,76,0.15)" opacity="0.8"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">कुलदेवी कृपा · Vedic Astrology</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h1>TejalBen<br><em>Acharya Soni</em></h1>
+      <p class="hero-tagline">Unveiling your cosmic destiny<br>through ancient wisdom</p>
+      <p class="hero-desc">Experience authentic Vedic astrology guidance for clarity, prosperity, and spiritual growth. Rooted in sacred tradition, guided by the stars.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary">Book a Consultation</button>
+        <button class="btn-ghost">Explore Services</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-inner">
+      <span class="marquee-item">Kundali Analysis <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Hast Rekha · Palmistry <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Face Reading <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Vastu Shastra <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Marriage Compatibility <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Numerology <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Kundali Analysis <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Hast Rekha · Palmistry <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Face Reading <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Vastu Shastra <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Marriage Compatibility <span class="marquee-dot"></span></span>
+      <span class="marquee-item">Numerology <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section bg-surface">
+    <div class="section-header">
+      <div class="section-eyebrow">Sacred Services</div>
+      <h2 class="section-title">Our <em>Ancient Offerings</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+        </div>
+        <div class="service-name">Kundali Analysis</div>
+        <div class="service-desc">Comprehensive birth chart interpretation revealing your life path, karmic patterns, and cosmic blueprint.</div>
+        <a href="#" class="service-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M18 11.5C18 16.194 14.5 20.5 12 22C9.5 20.5 6 16.194 6 11.5C6 8.462 8.686 6 12 6C15.314 6 18 8.462 18 11.5Z"/>
+            <path d="M12 6V2M9 3.5L12 2L15 3.5"/>
+          </svg>
+        </div>
+        <div class="service-name">Hast Rekha</div>
+        <div class="service-desc">Ancient palmistry to reveal the lines of destiny written in your hands, unlocking life's hidden patterns.</div>
+        <a href="#" class="service-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M6 20C6 17 8.686 15 12 15C15.314 15 18 17 18 20"/>
+            <circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div class="service-name">Face Reading</div>
+        <div class="service-desc">Ancient facial analysis revealing personality traits, health indicators, and the wisdom encoded in your features.</div>
+        <a href="#" class="service-link">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="6"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="6" y2="12"/>
+            <line x1="18" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="service-name">All Services</div>
+        <div class="service-desc">Vastu consultation, numerology, marriage compatibility, career guidance, and remedial solutions.</div>
+        <a href="#" class="service-link">View all →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip">
+    <div class="about-visual">
+      <svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Yantra geometric -->
+        <g transform="translate(130,130)" fill="none" stroke="#C9A84C">
+          <circle cx="0" cy="0" r="120" stroke-width="0.8" opacity="0.25"/>
+          <polygon points="0,-100 86.6,50 -86.6,50" stroke-width="0.8" opacity="0.5"/>
+          <polygon points="0,100 -86.6,-50 86.6,-50" stroke-width="0.8" opacity="0.5"/>
+          <circle cx="0" cy="0" r="60" stroke-width="0.8" opacity="0.4"/>
+          <rect x="-42" y="-42" width="84" height="84" stroke-width="0.8" opacity="0.4"/>
+          <circle cx="0" cy="0" r="20" stroke-width="1" opacity="0.6" fill="rgba(201,168,76,0.08)"/>
+          <!-- outer lotus petals -->
+          <g opacity="0.3">
+            <ellipse rx="10" ry="28" transform="translate(0,-90)" stroke-width="0.6"/>
+            <ellipse rx="10" ry="28" transform="translate(0,-90) rotate(45,0,90)" stroke-width="0.6"/>
+            <ellipse rx="10" ry="28" transform="translate(0,-90) rotate(90,0,90)" stroke-width="0.6"/>
+            <ellipse rx="10" ry="28" transform="translate(0,-90) rotate(135,0,90)" stroke-width="0.6"/>
+            <ellipse rx="10" ry="28" transform="translate(0,-90) rotate(180,0,90)" stroke-width="0.6"/>
+            <ellipse rx="10" ry="28" transform="translate(0,-90) rotate(225,0,90)" stroke-width="0.6"/>
+            <ellipse rx="10" ry="28" transform="translate(0,-90) rotate(270,0,90)" stroke-width="0.6"/>
+            <ellipse rx="10" ry="28" transform="translate(0,-90) rotate(315,0,90)" stroke-width="0.6"/>
+          </g>
+          <text text-anchor="middle" dominant-baseline="central" font-size="36" fill="#C9A84C" opacity="0.7" font-family="serif">ॐ</text>
+        </g>
+      </svg>
+    </div>
+    <div class="about-text">
+      <div class="section-eyebrow" style="text-align:left; margin-bottom:12px;">About the Acharya</div>
+      <h2>Rooted in <em>Sacred Tradition</em>,<br>Guided by the Stars</h2>
+      <p>With decades of study in classical Vedic texts and direct lineage wisdom, TejalBen brings an authenticity to astrological practice that modern consultants rarely possess.</p>
+      <p>Every consultation is a sacred dialogue — between the cosmos, the charts, and the individual soul seeking clarity.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-num">2000+</div>
+          <div class="stat-label">Consultations</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years of Practice</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Sacred Services</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">The stars whisper secrets that the heart already knows. Seek guidance from the cosmos, and discover your true path.</p>
+    <div class="quote-source">— Ancient Vedic Wisdom</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <div class="footer-logo">TejalBen Acharya Soni</div>
+      <div class="footer-tagline">Guiding you toward cosmic harmony and spiritual growth</div>
+    </div>
+    <div class="footer-center">
+      <span class="footer-om">ॐ</span>
+      <div class="footer-mantra">श्री गणेशाय नमः</div>
+    </div>
+    <div class="footer-right">
+      © 2026 · Premium Vedic Astrology Services<br>
+      <span style="opacity:0.5">All rights reserved</span>
+    </div>
+  </footer>
+
+</div>
